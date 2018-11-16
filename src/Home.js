@@ -65,6 +65,7 @@ class Home extends Component {
 		});
   }
   setProject = (data) => {
+    console.log(data);
     var array = [];
     var completed = [];
     var x = 0;
@@ -73,7 +74,8 @@ class Home extends Component {
       var now = moment();
       var duration = moment.duration(now.diff(data[i].dateMade));
       var hours = duration.asHours();
-=      // var number = moment(data[i].dateMade).fromNow(true).toString();
+      console.log(hours);
+      // var number = moment(data[i].dateMade).fromNow(true).toString();
       // var hours = number.substring(0,2);
       if(parseFloat(hours)< 50){
         if(data[i].checked == '1'){
@@ -82,9 +84,11 @@ class Home extends Component {
             time = time + parseFloat(data[i].dateDue);
           }
           completed.push(data[i]);
+          console.log(completed);
         }
         else{
           array.push(data[i]);
+          console.log(array);
         }
       }
     }
@@ -108,7 +112,7 @@ class Home extends Component {
     })
   }
   handleAddProject = () => {
-    return axios.post('https://task-ceiline.herokuapp.com/users/project', { name: this.state.projectName, date: this.state.date , dateMade: moment(), idUsers: UserID.getID(), school: this.state.school, extra: this.state.extra, work: this.state.work})
+    return axios.post('https://task-ceiline.herokuapp.com/users/project', { name: this.state.projectName, date: this.state.date , dateMade: moment(), idUsers: UserID.getID(), school: this.state.school, extra: this.state.extra, work: this.state.wor,})
     .then(() => this.fetchProject());
   }
   renderProjects = () => {
@@ -155,6 +159,7 @@ class Home extends Component {
         work:false
       })
     }
+    console.log(this.state.school);
   }
   setExtra = () => {
     if(this.state.extra){
@@ -171,6 +176,7 @@ class Home extends Component {
         work:false
       })
     }
+    console.log(this.state.school);
   }
   setWork = () => {
     if(this.state.work){
@@ -187,6 +193,7 @@ class Home extends Component {
         extra:false
       })
     }
+    console.log(this.state.school);
   }
   modalAddProject() {
     const styles = {
@@ -213,6 +220,7 @@ class Home extends Component {
         transform             : 'translate(-50%, -50%)'
       }
     };
+    console.log("hi");
     return(
       <Modal ariaHideApp={false} isOpen={this.state.open} onRequestClose={this.closeModal} style={customStyles}>
         <div className = 'text'>
@@ -238,6 +246,7 @@ class Home extends Component {
     )
   }
   toggleCheck =() => {
+    console.log(this.state.showComplete);
     if(this.state.showComplete){
     this.setState({showComplete : false})
     }
