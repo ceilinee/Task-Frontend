@@ -46,20 +46,15 @@ class App extends Component {
       this.setState({
           email: event.target.value
       });
-      console.log(this.state.email);
   }
   setPassword = (event) => {
       this.setState({
           password: event.target.value
       });
-      console.log(this.state.password);
   }
   login(data){
-    console.log(data);
     if(data!="Failed Login" && data!="No Email or Password"){
-      console.log(data.Activated.idUsers);
       UserID.setID(data.Activated.idUsers);
-      console.log(UserID.getID());
       this.handleOnClick()
     }
     else{

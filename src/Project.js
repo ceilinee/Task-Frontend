@@ -38,18 +38,15 @@ export default class Project extends React.Component {
 		}
 	}
 	setTrue = () => {
-		console.log(this.props.projects.name);
-    axios.put('https://taskr-manager.herokuapp.com/project/true', { name: this.props.projects.name, idUsers: UserID.getID() })
+    axios.put('https://task-ceiline.herokuapp.com/project/true', { name: this.props.projects.name, idUsers: UserID.getID() })
     .then(() => {this.props.refresh()});
 	}
   render(){
-		console.log(this.props.projects.idProject);
 		var box = "box";
 		var sideline = "side-line";
 		if(this.props.projects.work == "true"){
 			box = "box-yellow";
 			sideline = "side-line-yellow";
-			console.log("yellow");
 		};
 		if(this.props.projects.extra == "true"){
 			box = "box-green";
