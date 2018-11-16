@@ -58,7 +58,7 @@ class Home extends Component {
     this.fetchProject();
   }
   fetchProject = () => {
-    fetch('/project/' + UserID.getID(), {
+    fetch('https://task-ceiline.herokuapp.com/project/' + UserID.getID(), {
 			accept: 'application/json',
 		}).then((response) => response.json()).then(response => {
 			this.setProject(response);

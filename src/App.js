@@ -67,11 +67,11 @@ class App extends Component {
     }
   }
   handleSignUp () {
-    return axios.post('/users', { email: this.state.email, password: this.state.password })
+    return axios.post('https://task-ceiline.herokuapp.com/users', { email: this.state.email, password: this.state.password })
     .then(response => console.log(response)).then(this.setState({email: '', password: ''}));
   }
   handleLogIn () {
-    return axios.get('/users/'+this.state.email+'/'+this.state.password)
+    return axios.get('https://task-ceiline.herokuapp.com/users/'+this.state.email+'/'+this.state.password)
     .then(response => this.login(response.data));
   }
   handleOnClick = () => {

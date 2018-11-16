@@ -50,7 +50,7 @@
 }
 .checked{
   /* background-color: #dd797e; */
-  background: linear-gradient(90deg, rgb(255, 160, 80) 0%, rgb(241, 97, 97) 53%, rgb(220, 45, 109) 91%);
+  background: linear-gradient(40deg, #ffb34c 0%, #fcb69f 53%, rgb(230, 129, 134) 91%);
   margin-top: 180px;
   margin-bottom: -30px;
   width: 90%;
