@@ -39,7 +39,7 @@ export default class Project extends React.Component {
 	}
 	setTrue = () => {
 		console.log(this.props.projects.name);
-    axios.put('/project/true', { name: this.props.projects.name, idUsers: UserID.getID() })
+    axios.put('https://taskr-manager.herokuapp.com/project/true', { name: this.props.projects.name, idUsers: UserID.getID() })
     .then(() => {this.props.refresh()});
 	}
   render(){

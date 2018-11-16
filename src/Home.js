@@ -112,7 +112,7 @@ class Home extends Component {
     })
   }
   handleAddProject = () => {
-    return axios.post('/users/project', { name: this.state.projectName, date: this.state.date , dateMade: moment(), idUsers: UserID.getID(), school: this.state.school, extra: this.state.extra, work: this.state.work})
+    return axios.post('https://taskr-manager.herokuapp.com/users/project', { name: this.state.projectName, date: this.state.date , dateMade: moment(), idUsers: UserID.getID(), school: this.state.school, extra: this.state.extra, work: this.state.work})
     .then(() => this.fetchProject());
   }
   renderProjects = () => {
