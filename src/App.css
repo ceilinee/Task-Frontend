@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Lobster|Raleway:200,400|Roboto');
+
+.App {
+  text-align: center;
+  background: #c9c8d273;
+  height:100%;
+  width: 100%;
+  background-size: cover;
+  position: fixed;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+.logo {
+  width:110px;
+  margin-top:60px;
+}
+.logo-title{
+  font-size: 70px;
+  color: white;
+  font-weight: 900;
+}
+.title-back{
+  background-color: white;
+  width: 70%;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 15px;
+  padding: 10px;
+}
+.title{
+  font-family: Raleway;
+  margin-top: 0px;
+  font-weight: 100;
+  font-size:30px;
+  margin-bottom: 5px;
+  padding-top: 10px;
+}
+.account{
+  margin-top: 10px;
+  padding-bottom: 30px;
+  font-size: 13px;
+}
+.purple{
+  color:purple;
+}.purple:hover{
+  cursor: pointer;
+}
+.textbox {
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  margin-top: 15px;
+  width: 90%;
+  text-align: left;
+  font-size: 12px;
+  color: #a9a6a6;
+  font-weight: 100;
+  border-radius: 5px;
+  border: 1px solid #f3f3f3;
+}
+.App-header {
+  font-family: Raleway;
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Post {
+  font-family: Raleway;
+  background: linear-gradient(0deg, #ffecd2 0%, #fcb69f 53%, rgb(230, 129, 134) 91%);
+  height: 100%;
+  top:0px;
+  min-height: 400px;
+  min-width: 300px;
+  /* top: 20px; */
+  width: 100%;
+  position: relative;
+  margin: auto;
+  font-weight: 100;
+}
+.App-title {
+  font-size: 1.5em;
+}
+.text {
+  font-family: Raleway;
+  margin-right: 10px;
+}
+.load {
+  font-family: Raleway;
+  color: #ffffff;
+  background: #FF847C;
+  /* margin-top: 50%; */
+  font-size: 13px;
+  font-family: Arial;
+  padding: 9px 20px 9px 20px;
+  border-radius: 5px;
+  /* margin-bottom: 5px; */
+  border: 1px;
+  width: 100%;
+  font-size: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 80px;
+}
+.load:hover {
+}
+.load-button {
+  border: 1px solid white;
+  float: right;
+  padding: 8px;
+  border-radius: 15px;
+}.load-button:hover{
+  cursor: pointer;
+  background-color: pink;
+}
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
