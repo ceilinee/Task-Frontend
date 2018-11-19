@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import axios from 'axios';
+import garbage from './garbage.png';
 import UserID from './UserID';
 
 export default class Project extends React.Component {
@@ -41,6 +42,11 @@ export default class Project extends React.Component {
     axios.put('https://task-ceiline.herokuapp.com/project/true', { name: this.props.projects.name, idUsers: UserID.getID() })
     .then(() => {this.props.refresh()});
 	}
+	deleteTask = () => {
+		console.log("hello");
+		axios.delete('https://task-ceiline.herokuapp.com/project/delete', { params: { name: this.props.projects.name, idUsers: UserID.getID() } })
+		.then(() => {this.props.refresh()});
+	}
   render(){
 		var box = "box";
 		var sideline = "side-line";
@@ -61,8 +67,9 @@ export default class Project extends React.Component {
 												type="checkbox"
 												checked={this.state.project}
 												onChange={()=>{this.handleChange()}} />
-												{this.props.projects.name} ({this.props.projects.dateDue} hr)
 										</label>
+										{this.props.projects.name} ({this.props.projects.dateDue} hr)
+										<img className = "garbage-icon" onClick={() => {this.deleteTask()}} src={garbage}/>
 						</div>
 				);
     }

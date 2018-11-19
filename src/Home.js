@@ -112,7 +112,7 @@ class Home extends Component {
     })
   }
   handleAddProject = () => {
-    return axios.post('https://task-ceiline.herokuapp.com/users/project', { name: this.state.projectName, date: this.state.date , dateMade: moment(), idUsers: UserID.getID(), school: this.state.school, extra: this.state.extra, work: this.state.wor,})
+    return axios.post('https://task-ceiline.herokuapp.com/users/project', { name: this.state.projectName, date: this.state.date , dateMade: moment(), idUsers: UserID.getID(), school: this.state.school, extra: this.state.extra, work: this.state.work})
     .then(() => this.fetchProject());
   }
   renderProjects = () => {
@@ -292,9 +292,9 @@ class Home extends Component {
           </div>
           {this.modalAddProject()}
           <div className="project-space">
-          <div className="checked" onClick={() => {this.toggleCheck()}}>{check} {complete}</div>
+          <div className="checked" onClick={() => {this.toggleCheck()}}>See {check} {complete} tasks</div>
           <div className="timeSpent">
-          {this.state.timeSpent} hours spent working today
+            {this.state.complete.length} tasks completed today ({this.state.timeSpent} hrs)
           </div>
           {this.renderProjects()}
           </div>

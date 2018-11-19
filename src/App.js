@@ -93,7 +93,7 @@ class App extends Component {
         <p>Welcome back! Login to start managing your time.</p>
         <div className = 'text'>
         <input type="text" className="textbox" id= "color" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
-        <input type="text" className="textbox" id= "color" placeholder="Email" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
+        <input type="text" className="textbox" id= "color" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
         </div>
         <div className="account">
         <span>No account yet?</span> <span className="purple" onClick={() => {this.setState({logintoggle:false})}}>Sign up</span>
