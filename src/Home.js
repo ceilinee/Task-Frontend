@@ -11,7 +11,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
-import Task from './task.png';
+import Task from './red.png';
 import Error from './error.png';
 import Project from './Project';
 import './home.css';
@@ -77,19 +77,15 @@ class Home extends Component {
       console.log(hours);
       // var number = moment(data[i].dateMade).fromNow(true).toString();
       // var hours = number.substring(0,2);
-      if(parseFloat(hours)< 50){
-        if(data[i].checked == '1'){
-          x++;
-          if(parseFloat(hours)< 30){
-            time = time + parseFloat(data[i].dateDue);
-          }
-          completed.push(data[i]);
-          console.log(completed);
-        }
-        else{
-          array.push(data[i]);
-          console.log(array);
-        }
+      if(data[i].checked == '1'){
+        x++;
+        time = time + parseFloat(data[i].dateDue);
+        completed.push(data[i]);
+        console.log(completed);
+      }
+      else{
+        array.push(data[i]);
+        console.log(array);
       }
     }
     this.setState({
@@ -239,7 +235,7 @@ class Home extends Component {
             </div>
         </div>
         <button className= "addButton" onClick={() => {
-            this.handleAddProject().then(alert("New Project Added!")).then(this.closeModal).then(() => {this.setState({ projectName: '', date:''})})}}>
+            this.handleAddProject().then(alert("New Project Added!")).then(this.closeModal).then(() => {this.setState({ projectName: '', date:'', work: false, school: false, extra: false})})}}>
             Add Project
         </button>
       </Modal>
@@ -257,9 +253,14 @@ class Home extends Component {
   render() {
     var check = 0;
     var complete = 'completed';
+    var bar = "yellow";
+    console.log(this.state.complete);
     if(this.state.showComplete){
       check=this.state.project.length;
       complete='incomplete';
+    }
+    if(this.state.timeSpent >= 5){
+      bar="red";
     }
     else{
       check=this.state.complete.length;
@@ -280,19 +281,17 @@ class Home extends Component {
       <div className = "block">
         <div className = "project">
           <img src={Task} className="task"/>
+          <div className = "today">
+            {this.state.showComplete ? "Completed Tasks" : "Incomplete Tasks"}
+          </div>
           <div className = "add">
               <div className = "plus" onClick={this.openModal}>
               +
               </div>
           </div>
-          <div className = "add">
-              <div className = "today">
-               {moment().format("MMMM Do YYYY, h:mm a")}
-              </div>
-          </div>
           {this.modalAddProject()}
           <div className="project-space">
-          <div className="checked" onClick={() => {this.toggleCheck()}}>See {check} {complete} tasks</div>
+          <div className={bar} onClick={() => {this.toggleCheck()}}>See {this.state.complete.length} {complete} tasks</div>
           <div className="timeSpent">
             {this.state.complete.length} tasks completed today ({this.state.timeSpent} hrs)
           </div>
