@@ -9,7 +9,7 @@ import './App.css';
 import './tab.css';
 import './home.css';
 import logo from './clip.png';
-import Task from './task.png';
+import Task from './background.png';
 import Error from './error.png';
 import UserID from './UserID';
 
@@ -92,8 +92,8 @@ class App extends Component {
         <h1 className = "title">Login</h1>
         <p>Welcome back! Login to start managing your time.</p>
         <div className = 'text'>
-        <input type="text" className="textbox" id= "color" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
-        <input type="text" className="textbox" id= "color" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
+        <input type="text" className="textbox" id= "loginemail" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
+        <input type="password" className="textbox" id= "loginpassword" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
         </div>
         <div className="account">
         <span>No account yet?</span> <span className="purple" onClick={() => {this.setState({logintoggle:false})}}>Sign up</span>
@@ -126,8 +126,8 @@ class App extends Component {
         <h1 className = "title">Sign Up</h1>
         <p>Discover how productive you can be! Sign up now for free.</p>
         <div className = 'text'>
-        <input type="text" className="textbox" id= "color" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
-        <input type="text" className="textbox" id= "color" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
+        <input type="text" className="textbox" id= "email" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
+        <input type="password" className="textbox" id= "password" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
         </div>
         <div className="account">
         <span>Have an account? </span> <span className="purple" onClick={() => {this.setState({logintoggle:true})}}>Log in.</span>
@@ -144,15 +144,6 @@ class App extends Component {
   render() {
     if (this.state.redirect) {
     return <Redirect push to="/home" />;
-    }
-    if(this.state.width > 560){
-      return (
-        <div>
-          <div className="Message">
-          This webapp is only optimized for mobile devices, sorry for the inconvenience!
-          </div>
-        </div>
-      )
     }
     else{
     return (

@@ -11,7 +11,8 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
-import Task from './red.png';
+import Task from './background.png';
+import Logo from './logo2.png';
 import Error from './error.png';
 import Project from './Project';
 import './home.css';
@@ -266,21 +267,20 @@ class Home extends Component {
       check=this.state.complete.length;
       complete='completed';
     }
-    if(this.state.width > 560){
-      return (
-        <div>
-          <div className="Message">
-          This webapp is only optimized for mobile devices, sorry for the inconvenience!
-          </div>
-        </div>
-      )
-    }
-    else{
     return (
       <div>
+      <div className = "header">
+        <img src={Logo} className="logo-header"/>
+            <span className="selected" onClick = {() => {this.setState({showComplete: false})}}>
+              Incomplete Tasks
+            </span>
+            <span className="selection" onClick={() => {this.toggleCheck()}}>
+              Complete Tasks
+            </span>
+      </div>
       <div className = "block">
         <div className = "project">
-          <img src={Task} className="task"/>
+          <div className="task"/>
           <div className = "today">
             {this.state.showComplete ? "Completed Tasks" : "Incomplete Tasks"}
           </div>
@@ -291,7 +291,6 @@ class Home extends Component {
           </div>
           {this.modalAddProject()}
           <div className="project-space">
-          <div className={bar} onClick={() => {this.toggleCheck()}}>See {this.state.complete.length} {complete} tasks</div>
           <div className="timeSpent">
             {this.state.complete.length} tasks completed today ({this.state.timeSpent} hrs)
           </div>
@@ -301,7 +300,6 @@ class Home extends Component {
       </div>
       </div>
     );
-  }
   }
 }
 

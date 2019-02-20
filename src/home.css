@@ -26,7 +26,6 @@
   border: 1px solid #dadada;
 }
 .project-space{
-  margin-top:100px;
 }
 .today{
   margin: auto;
@@ -81,11 +80,68 @@
   border-radius: 10px;
   color:white;
 }
+.header {
+  background-color: white;
+  color: blue;
+  top: 0px;
+  bottom: 0px;
+  height: 50px;
+  font-family: Raleway;
+}
+.logo-header{
+  width: 90px;
+  margin-top: 10px;
+  margin-bottom: -13px;
+  margin-left: 8%;
+  margin-right: 2%;
+}
+.links{
+  color: white;
+  /* padding-top: 20px; */
+  text-align: left;
+  padding-bottom: 5px;
+  padding-left: 45px;
+  background-color: #000614;
+  /* bottom: 0px; */
+  height: 50px;
+  /* margin-top: 10px; */
+  min-width: 1000px;
+  font-family: Roboto;
+  font-weight: 100;
+  font-size: 15px;
+}
+.selected{
+  margin: 10px;
+  padding: 4px;
+  border-radius: 5px;
+  color: white;
+  background-color:#f07f6e;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: 13px;
+  margin-right: -30px;
+  /* padding-bottom: 10px; */
+}
+.selection{
+  margin: 10px;
+  padding: 4px;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  margin-left: 40px;
+  font-size: 13px;
+  margin-right: -30px;
+  /* padding-bottom: 10px; */
+}
 .task {
   width: 100%;
-  position: absolute;
-  height: 270px;
-  margin-top: -50px;
+      position: absolute;
+      height: 178px;
+      /* margin-top: -50px; */
+      background-image: url(flower2.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 }
 .space {
   display: inline-flex;
@@ -94,19 +150,19 @@
 }
 .add {
   margin-top: 140px;
-  margin-left: 60px;
+  margin-left: 8%;
   height: 24px;
   margin-bottom: 60px;
 }
 .plus{
-  width: 60px;
-  height: 60px;
-  background: #ef6560;
+  width: 70px;
+  height: 70px;
+  background: #e96760;
   position: absolute;
   text-align: center;
   border-radius: 50%;
   color: white;
-  font-size: 50px;
+  font-size: 61px;
 }
 .radioset{
   margin-bottom: 10px;
@@ -141,7 +197,7 @@
   padding: 5px;
   padding-top: 15px;
   margin-top: 5px;
-  width: 90%;
+  width: 80%;
   border-radius: 5px;
   padding-left: 15px;
 }
@@ -215,7 +271,7 @@
 }
 .addButton {
   color: #ffffff;
-  background: #FF847C;
+  background: #6bb1ff;
   margin-top: 30px;
   font-size: 13px;
   font-family: Arial;
