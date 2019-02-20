@@ -9,6 +9,7 @@ import './App.css';
 import './tab.css';
 import './home.css';
 import logo from './clip.png';
+import Logo from './logo2.png';
 import Task from './background.png';
 import Error from './error.png';
 import UserID from './UserID';
@@ -88,23 +89,21 @@ class App extends Component {
       },
     };
     return (
-      <div className = "title-back">
-        <h1 className = "title">Login</h1>
-        <p>Welcome back! Login to start managing your time.</p>
-        <div className = 'text'>
-        <input type="text" className="textbox" id= "loginemail" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
-        <input type="password" className="textbox" id= "loginpassword" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
-        </div>
-        <div className="account">
-        <span>No account yet?</span> <span className="purple" onClick={() => {this.setState({logintoggle:false})}}>Sign up</span>
-        </div>
-        <button className= "load" onClick={this.handleLogIn}>
-          <div className="load-button">
-          Login
+        <div className = "title-back">
+          <h1 className = "title-small">Login</h1>
+          <p>Welcome back! Login to start managing your time.</p>
+          <div className = 'text'>
+          <input type="text" className="textbox-small" id= "loginemail" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
+          <input type="password" className="textbox-small" id= "loginpassword" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
           </div>
-        </button>
-      </div>
-    )
+          <div className="account">
+          <span>No account yet?</span> <span className="purple" onClick={() => {this.setState({logintoggle:false})}}>Sign up</span>
+          </div>
+          <button className= "load-small" onClick={this.handleLogIn}>
+            Login
+          </button>
+        </div>
+      )
   }
   renderSign = () => {
     const styles = {
@@ -121,40 +120,45 @@ class App extends Component {
         color: '#FF847C',
       },
     };
-    return(
-      <div className = "title-back">
-        <h1 className = "title">Sign Up</h1>
-        <p>Discover how productive you can be! Sign up now for free.</p>
-        <div className = 'text'>
-        <input type="text" className="textbox" id= "email" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
-        <input type="password" className="textbox" id= "password" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
-        </div>
-        <div className="account">
-        <span>Have an account? </span> <span className="purple" onClick={() => {this.setState({logintoggle:true})}}>Log in.</span>
-        </div>
-        <button className= "load" onClick={() => {
-            this.handleSignUp().then(alert("Thanks for signing up, you can sign in now!"))}}>
-          <div className="load-button">
-          Sign Up
+      return (
+        <div className = "title-back">
+          <h1 className = "title-small">Sign Up</h1>
+          <p>Discover how productive you can be! Sign up now for free.</p>
+          <div className = 'text'>
+          <input type="text" className="textbox-small" id= "email" placeholder="Email" value={this.state.email} onChange={(event)=> {this.setState({email : event.target.value})}}/>
+          <input type="password" className="textbox-small" id= "password" placeholder="Password" value={this.state.password} onChange={(event)=> {this.setState({password : event.target.value})}}/>
           </div>
-        </button>
-      </div>
-    )
+          <div className="account">
+          <span>Have an account? </span> <span className="purple" onClick={() => {this.setState({logintoggle:true})}}>Log in.</span>
+          </div>
+          <button className= "load-small" onClick={() => {
+              this.handleSignUp().then(alert("Thanks for signing up, you can sign in now!"))}}>
+            Sign Up
+          </button>
+        </div>
+      )
   }
   render() {
     if (this.state.redirect) {
     return <Redirect push to="/home" />;
     }
+    if(this.state.width > 700){
+      return (
+        <div className="App">
+          <div className = "rightside">
+          </div>
+          <div className = "Post-small">
+          <img src={Logo} className="logo-header-small"/>
+            {this.state.logintoggle ? this.renderLogin() : this.renderSign()}
+          </div>
+        </div>
+      );
+    }
     else{
     return (
       <div className="App">
         <div className = "Post">
-        <div>
-          <img src={logo} className="logo"/>
-          <div className="logo-title">
-          Taskr
-          </div>
-        </div>
+        <img src={Logo} className="logo-header-small"/>
           {this.state.logintoggle ? this.renderLogin() : this.renderSign()}
         </div>
       </div>
