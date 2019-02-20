@@ -263,6 +263,12 @@ class Home extends Component {
     if(this.state.timeSpent >= 5){
       bar="red";
     }
+    var incompleteselected = "selected";
+    var completeselected = "selection";
+    if(this.state.showComplete){
+      completeselected = "selected";
+      incompleteselected = "selection";
+    }
     else{
       check=this.state.complete.length;
       complete='completed';
@@ -271,10 +277,10 @@ class Home extends Component {
       <div>
       <div className = "header">
         <img src={Logo} className="logo-header"/>
-            <span className="selected" onClick = {() => {this.setState({showComplete: false})}}>
+            <span className={incompleteselected} onClick = {() => {this.setState({showComplete: false})}}>
               Incomplete Tasks
             </span>
-            <span className="selection" onClick={() => {this.toggleCheck()}}>
+            <span className={completeselected} onClick={() => {this.toggleCheck()}}>
               Complete Tasks
             </span>
       </div>
